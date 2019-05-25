@@ -12,6 +12,7 @@
 
 ### Pending Updates
 
-* Add functions to calculate if points are collinear or coplanars
-* Add templates features to generate IvVector of different types
-* Add Logic to manage Matrices and affine transformations
+* Add functions to calculate if points are collinear or coplanars.
+* Add a testing suite to test all classes.
+* Add templates features to generate IvVector of different types.
+* Add Logic to manage Matrices and affine transformations.
