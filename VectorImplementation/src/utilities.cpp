@@ -1,4 +1,5 @@
 #include "utilities.h"
+#include <math.h>
 
 bool IvVectorUtils::isPerpendicular(IvVector3 &v1, IvVector3 &v2)
 {
@@ -76,6 +77,31 @@ std::vector<IvVector3*> IvVectorUtils::grandSchmidtR3(IvVector3 &v0, IvVector3 &
     return orthonormalSet;
 
 };
+
+std::tuple<float, float> IvVectorUtils::Cartesian2Polar(IvVector3 &v)
+{
+    std::tuple<float,float> polarCoordinates;
+
+    float r = v.GetX()*v.GetX() + v.GetY()*v.GetY();
+
+    r = static_cast<float>(sqrt(static_cast<double>(r)));
+
+    float angle = atan2(v.GetY(), v.GetX()); // radians
+
+    return std::make_tuple(r,angle);
+
+}
+
+std::tuple<float,float,float> IvVectorUtils::Cartesian2Spherical(IvVector3 &v)
+{
+    // std::tuple<float,float,float> spherical;
+
+    float ro = v.Length();
+    float phi = atan2(static_cast<float>(sqrt(static_cast<double>(v.GetX() * v.GetX() + v.GetY() * v.GetY()))),v.GetZ());
+    float theta = atan2(v.GetY(), v.GetX());
+
+    return std::make_tuple(ro,phi,theta);
+}
 
 // testing angles if Dot > 0 angle between vector is < 90
 // testing angles if Dot < 0 angle between vector is > 90

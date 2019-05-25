@@ -2,6 +2,7 @@
 #include "IvVector.h"
 #include "utilities.h"
 
+
 int main() {
     std::cout << "Hello Easy C++ project!" << std::endl;
 
@@ -50,5 +51,15 @@ int main() {
 
     std::cout << "Distance Squared: " << vect2.Distance(vect2,z) << std::endl;
 
-    
+    std::tuple<float,float> polar;
+    polar = IvVectorUtils::Cartesian2Polar(z);
+
+    std::tuple<float,float,float> spherical;
+    spherical = IvVectorUtils::Cartesian2Spherical(z);
+
+    std::cout << "Polar System: " << std::get<0>(polar) << "," << std::get<1>(polar) << std::endl;
+
+    std::cout << "Spherical System: " << std::get<0>(spherical) << ", " 
+                                      << std::get<1>(spherical) << "," 
+                                      << std::get<2>(spherical) << std::endl;
 }
