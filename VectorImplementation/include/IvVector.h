@@ -103,6 +103,26 @@ class IvVector3
 
 };
 
+class IvLine3
+{
+    public:
+
+        IvLine3(const IvVector3& direction, const IvVector3& origin);
+        IvVector3 mDirection;
+        IvVector3 mOrigin;
+};
+
+class IvPlane
+{
+    public:
+
+        IvPlane(float a, float b, float c, float d);
+
+        IvVector3 mNormal;
+        float mOffset;
+
+};
+
 
 
 // Operators definition
@@ -139,4 +159,4 @@ class IvVector3
 // {
 
 //     return IvVector3(v.x / a, v.y / a, v.z / a);
-// };
+// }
