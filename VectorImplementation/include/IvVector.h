@@ -8,28 +8,27 @@ class IvVector3
 {
 
     public: 
+
         inline IvVector3() {}
         inline IvVector3(float xVal, float yVal, float zVal) : x(xVal), y(yVal), z(zVal) {}
 
         inline ~IvVector3(){}
-        IvVector3(const IvVector3& vector);
+        IvVector3(const IvVector3& vector){
+
+            x = vector.x;
+            y = vector.y;
+            z = vector.z;
+        };
 
         // Operators to overload
-        // IvVector3& operator=(const IvVector3 &vector);
-        // friend IvVector3 operator+(const IvVector3 &v0, const IvVector3 &v1);
-        // friend IvVector3 operator*(float a, const IvVector3 &v);
-        // friend IvVector3 operator*(const IvVector3 &v, float a);
-        // friend IvVector3 operator/(const IvVector3 &v, float a);
-        // friend IvVector3 operator*=(const IvVector3 &v, float a);
-        // friend IvVector3 operator/=(const IvVector3 &v, float a);
-
-        // IvVector3& operator=(const IvVector3 &v) 
-
-        // {       
-        //     return *this;
-        
-        // };
-
+        IvVector3 &operator=(const IvVector3 &vector){ 
+            
+            x = vector.x;
+            y = vector.y;
+            z = vector.z;
+            return *this; 
+        };
+       
         friend IvVector3 operator+(const IvVector3 &v0, const IvVector3 &v1)
         {
 
@@ -95,9 +94,6 @@ class IvVector3
         inline void SetY(float yVal) { y = yVal; }
         inline void SetZ(float zVal) { z = zVal; }
 
-        
-
-        
     private:
         float x,y,z;
 
@@ -123,40 +119,3 @@ class IvPlane
 
 };
 
-
-
-// Operators definition
-
-// IvVector3 operator+(const IvVector3 &v0, const IvVector3 &v1)
-// {
-
-//     return IvVector3(v0.x + v1.x, v0.y + v1.y, v0.z + v1.z);
-// };
-
-// IvVector3 operator*(float a, const IvVector3 &v)
-// {
-//     return IvVector3(a * v.x, a * v.y, a * v.z);
-// };
-
-// IvVector3 operator*(const IvVector3 &v, float a)
-// {
-//     return IvVector3(a * v.x, a * v.y, a * v.z);
-// };
-
-// IvVector3 operator/(const IvVector3 &v, float a){
-
-//     return IvVector3(v.x/a , v.y/a , v.z/a);
-
-// };
-
-// IvVector3 operator*=(const IvVector3 &v, float a){
-
-//     return IvVector3(a * v.x, a *v.y, a *v.z);
-    
-// };
-
-// IvVector3 operator/=(const IvVector3 &v, float a)
-// {
-
-//     return IvVector3(v.x / a, v.y / a, v.z / a);
-// }

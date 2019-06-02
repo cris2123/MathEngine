@@ -37,12 +37,16 @@ int main() {
     std::cout << projection << std::endl;
 
     // testing projection function
-    std::vector<IvVector3*> test;
+    std::vector<IvVector3> test;
 
     test = IvVectorUtils::grandSchmidtR3(vect,vect2,z);
 
     IvVector3 orthonormal = IvVectorUtils::vectorTripleProduct(vect,vect2,z);
 
+    std::cout << "Grand Schmidt orthonormalization" << std::endl;
+    std::cout << test[0] << std::endl; 
+    std::cout << test[1] << std::endl; 
+    std::cout << test[2] << std::endl; 
 
     std::cout << "Triple products: " << orthonormal << std::endl;
 

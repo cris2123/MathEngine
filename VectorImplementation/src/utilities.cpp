@@ -55,24 +55,24 @@ IvVector3 IvVectorUtils::vectorTripleProduct(IvVector3 &v1, IvVector3 &v2, IvVec
 
 }
 
-std::vector<IvVector3*> IvVectorUtils::grandSchmidtR3(IvVector3 &v0, IvVector3 &v1, IvVector3 &v2)
+std::vector<IvVector3> IvVectorUtils::grandSchmidtR3(IvVector3 &v0, IvVector3 &v1, IvVector3 &v2)
 {
 
-    std::vector<IvVector3*> orthonormalSet;
+    std::vector<IvVector3> orthonormalSet;
 
-    // IvVector3 w0 = v0; 
+    IvVector3 w0 = v0; 
     
-    // IvVector3 w1 = v1 - vectorProjectionX(v1, v0);
+    IvVector3 w1 = v1 - vectorProjectionX(v1, v0);
 
-    // IvVector3 w2 = v2 - vectorProjectionX(v2,v0) - vectorProjectionX(v2,w1);
+    IvVector3 w2 = v2 - vectorProjectionX(v2,v0) - vectorProjectionX(v2,w1);
 
     // std::cout << v0 << std::endl;
     // std::cout << w1 << std::endl;
     // std::cout << w2 << std::endl;
 
-    //orthonormalSet.push_back(&w1); // take first vector to be the first base
-    //orthonormalSet.push_back(w1);
-//     orthonormalSet.push_back(w2);
+    orthonormalSet.push_back(w0); // take first vector to be the first base
+    orthonormalSet.push_back(w1);
+    orthonormalSet.push_back(w2);
 
     return orthonormalSet;
 
